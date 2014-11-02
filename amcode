@@ -1,0 +1,22 @@
+%am modulation cod
+clc;clear all;close all;
+f=1;%input signal frequency
+fc=50;%carrier frequency
+fs=200;%sampling frequency
+t=0:0.01:10;%or for example t=0:pi/100:2*pi
+x=sin(2*pi*f*t);%input signal
+y=modulate(x,fc,fs,'am');%am modulation function
+tt=linspace(0,10,length(y));%used to help us to plot input and output
+%check
+subplot(1,2,1)
+plot(tt,x)
+title('input signal')
+axis([0,10,-2,2])
+xlabel('time')
+ylabel('amplitude')
+subplot(1,2,2)
+plot(tt,y,'r')
+title('moduated signal')
+axis([0,10,-2,2])
+xlabel('time')
+ylabel('amplitude')
